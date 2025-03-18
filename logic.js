@@ -1,4 +1,4 @@
-playGame()
+playGame();
 
 function getComputerChoice() {
   random = Math.random();
@@ -21,14 +21,13 @@ function playGame() {
 
   for (let i = 0; i < 5; i++) playRound(getHumanChoice(), getComputerChoice());
 
-  console.log(`score: human - ${humanScore}, computer - ${computerScore}`);
-  
+  console.log(`\nscore: human - ${humanScore}, computer - ${computerScore}`);
 
   function playRound(humanChoice, computerChoice) {
     humanChoice =
       humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
     console.log(
-      `humanChoice: ${humanChoice}, computerChoice: ${computerChoice}`
+      `\nhumanChoice: ${humanChoice}, computerChoice: ${computerChoice}`
     );
     if (humanChoice === computerChoice) {
       console.log(`Tie! ${humanChoice} equals ${computerChoice}`);
