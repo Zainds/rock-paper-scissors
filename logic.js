@@ -20,33 +20,31 @@ function playGame() {
   let computerScore = 0;
 
   for (let i = 0; i < 5; i++) playRound(getHumanChoice(), getComputerChoice());
+  alert(`score: human - ${humanScore}, computer - ${computerScore}`)
 
   console.log(`\nscore: human - ${humanScore}, computer - ${computerScore}`);
 
   function playRound(humanChoice, computerChoice) {
+    let result = "";
     humanChoice =
       humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
     console.log(
       `\nhumanChoice: ${humanChoice}, computerChoice: ${computerChoice}`
     );
     if (humanChoice === computerChoice) {
-      console.log(`Tie! ${humanChoice} equals ${computerChoice}`);
-
-      return `Tie! ${humanChoice} equals ${computerChoice}`;
+      result = `Tie! ${humanChoice} equals ${computerChoice}`;
     } else if (
       (humanChoice === "Rock" && computerChoice === "Scissors") ||
       (humanChoice === "Paper" && computerChoice === "Rock") ||
       (humanChoice === "Scissors" && computerChoice === "Paper")
     ) {
       humanScore += 1;
-      console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-
-      return `You win! ${humanChoice} beats ${computerChoice}`;
+      result = `You win! ${humanChoice} beats ${computerChoice}`;
     } else {
       computerScore += 1;
-      console.log(`You loose! ${computerChoice} beats ${humanChoice}`);
-
-      return `You loose! ${computerChoice} beats ${humanChoice}`;
+      result = `You loose! ${computerChoice} beats ${humanChoice}`;
     }
+    console.log(result);
+    return result;
   }
 }
